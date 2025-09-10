@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "b2cc490f-6c36-4454-93e0-a58e80344340",
+		"name": "Movie_Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39619976"
+	},
+	"item": [
+		{
+			"name": "create_movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"release_year\": 2010,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 11\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/movies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "movie_created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"release_year\": 2010,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:21:14 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "144"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Inception\",\n    \"director\": \"Christopher Nolan\",\n    \"release_year\": 2010,\n    \"genre\": \"Sci-Fi\",\n    \"rating\": 9,\n    \"id\": \"c4652101-49b0-488a-a5f3-6c53fba68008\"\n}"
+				},
+				{
+					"name": "invalid_data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"release_year\": 2010,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:21:39 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "52"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid data: violates check constraint\"\n}"
+				}
+			]
+		},
+		{
+			"name": "fetch_movies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba6800",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						"c4652101-49b0-488a-a5f3-6c53fba6800"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "fetch_all_movie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:22:31 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "737"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"The Dark Knight\",\n        \"director\": \"Christopher Nolan\",\n        \"release_year\": 2008,\n        \"genre\": \"Action\",\n        \"rating\": 10,\n        \"id\": \"2793fd7e-2972-4d2a-8727-a960a5f62b88\"\n    },\n    {\n        \"title\": \"Inception\",\n        \"director\": \"Christopher Nolan\",\n        \"release_year\": 2009,\n        \"genre\": \"Sci-Fi\",\n        \"rating\": 8,\n        \"id\": \"20eeb41a-39b0-4597-b0e7-f29320cb78ad\"\n    },\n    {\n        \"title\": \"Interstellar\",\n        \"director\": \"Christopher Nolan\",\n        \"release_year\": 2015,\n        \"genre\": \"Sci-Fi\",\n        \"rating\": 3,\n        \"id\": \"2baf60b2-5f17-4f9b-96d1-40dce77038d0\"\n    },\n    {\n        \"title\": \"Inception\",\n        \"director\": \"Christopher Nolan\",\n        \"release_year\": 2010,\n        \"genre\": \"Sci-Fi\",\n        \"rating\": 9,\n        \"id\": \"c4652101-49b0-488a-a5f3-6c53fba68008\"\n    },\n    {\n        \"title\": \"Inception\",\n        \"director\": \"Christopher Nolan\",\n        \"release_year\": 2010,\n        \"genre\": \"Sci-Fi\",\n        \"rating\": 10,\n        \"id\": \"8888e39f-d808-44da-9b85-ec25e7cd452c\"\n    }\n]"
+				},
+				{
+					"name": "fetch_specific_movie",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba68008",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba68008"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:23:08 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "144"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Inception\",\n    \"director\": \"Christopher Nolan\",\n    \"release_year\": 2010,\n    \"genre\": \"Sci-Fi\",\n    \"rating\": 9,\n    \"id\": \"c4652101-49b0-488a-a5f3-6c53fba68008\"\n}"
+				},
+				{
+					"name": "movie_not_found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba6800",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba6800"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:23:32 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "28"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Movie not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update_movies",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher\",\r\n  \"release_year\": 2011,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba6800",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						"c4652101-49b0-488a-a5f3-6c53fba6800"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "movie_updated",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher\",\r\n  \"release_year\": 2011,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba68008",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba68008"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:25:23 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "138"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Inception\",\n    \"director\": \"Christopher\",\n    \"release_year\": 2011,\n    \"genre\": \"Sci-Fi\",\n    \"rating\": 9,\n    \"id\": \"c4652101-49b0-488a-a5f3-6c53fba68008\"\n}"
+				},
+				{
+					"name": "invalid_data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher\",\r\n  \"release_year\": 2011,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba68008",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba68008"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:25:41 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "52"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid data: violates check constraint\"\n}"
+				},
+				{
+					"name": "movie_not_found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher\",\r\n  \"release_year\": 2011,\r\n  \"genre\": \"Sci-Fi\",\r\n  \"rating\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba6800",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba6800"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:29:52 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "28"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Movie not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete_movies",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba68008",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						"c4652101-49b0-488a-a5f3-6c53fba68008"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "movie_deleted",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba68008",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba68008"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:27:26 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "movie_not_found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/movies/c4652101-49b0-488a-a5f3-6c53fba68008",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"movies",
+								"c4652101-49b0-488a-a5f3-6c53fba68008"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Wed, 10 Sep 2025 11:27:44 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "28"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Movie not found\"\n}"
+				}
+			]
+		}
+	]
+}
